@@ -20,10 +20,8 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">主页</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/login/oauth/authorize?client_id=7b221f989339ea9063a2&redirect_uri=http://localhost8886/callback&scope=user&state=1">登录</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" th:if="${session.user !=null}">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         我
@@ -37,6 +35,9 @@
                         <li><a class="dropdown-item" href="#">退出登录</a></li>
                     </ul>
                 </li>
+                <li class="nav-item" th:unless="not ${session.user ==null}">
+                    <a class="nav-link" href="https://github.com/login/oauth/authorize?client_id=7b221f989339ea9063a2&redirect_uri=http://localhost8886/callback&scope=user&state=1">登录</a>
+
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>
